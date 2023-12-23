@@ -1,10 +1,10 @@
 import mongoose from "mongoose";
 
 const connectMongoDB = async () => {
-  let name1:string = process.env.MONGODB_URI!; 
+  let connectName:string = process.env.MONGODB_URI!; 
 
   try {
-    await mongoose.connect(name1);
+    await mongoose.connect(connectName);
     console.log("Connected to MongoDB.")
   } catch (error) {
     console.log(error);
