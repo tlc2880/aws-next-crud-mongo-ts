@@ -5,7 +5,7 @@ import { topicType } from "../types.d";
 
 const getTopics = async () => {
   try {
-    const res = await fetch("https://next-mongo-vercel-rouge.vercel.app/api/topics", {
+    const res = await fetch("https://aws-next-crud-mongo-ts.vercel.app//api/topics", {
       cache: "no-store",
     });
 
@@ -19,11 +19,7 @@ const getTopics = async () => {
   }
 }
 
-// type Props = {
-//   id: string
-// }
-
-export default async function TopicsList() { //{id}: Props ) {
+export default async function TopicsList() {
   const { topics }: any  = await getTopics();
 
   return (

@@ -3,3 +3,7 @@ export type topicType = {
   'title': string,
   'description': string
 }
+
+export type paramsType = {
+  id: string
+}
