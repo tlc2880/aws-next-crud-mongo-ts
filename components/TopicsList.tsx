@@ -1,27 +1,26 @@
 import Link from "next/link";
 import RemoveBtn from "./RemoveBtn";
 import { HiPencilAlt } from "react-icons/hi";
-import { topicType } from "../types.d";
+import { topicType } from "../types";
 
 const getTopics = async () => {
   try {
-    const res = await fetch("https://aws-next-crud-mongo-ts.vercel.app/api/topics", {
+    const res: Response = await fetch('https://next-mongo-netlify.netlify.app/api/topics', {
       cache: "no-store",
     });
 
     if (!res.ok) {
       throw new Error("Failed to fetch topics");
     }
-
     return res.json();
   } catch (error) {
     console.log("Error loading topics: ", error);
   }
 }
 
-export default async function TopicsList() {
-  const { topics }: any  = await getTopics();
-
+export default async function TopicsList( ) {
+  const { topics }: any = await getTopics();
+  
   return (
     <>
     {topics.map((t: topicType) => (
