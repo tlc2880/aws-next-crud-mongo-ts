@@ -5,7 +5,7 @@ import { topicType } from "../types.d";
 
 const getTopics = async () => {
   try {
-    const res = await fetch("https://aws-next-crud-mongo-ts.vercel.app//api/topics", {
+    const res = await fetch("https://aws-next-crud-mongo-ts.vercel.app/api/topics", {
       cache: "no-store",
     });
 
