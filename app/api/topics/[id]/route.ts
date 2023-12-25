@@ -1,12 +1,9 @@
 import connectMongoDB from "@/libs/mongodb";
 import Topic from "@/models/topic";
 import { NextResponse } from "next/server";
+import { paramsType } from "../../../../types";
 
-type MyParams = {
-  id: string;
-}
-
-export async function PUT(request: Request, params: MyParams) {
+export async function PUT(request: Request, { params }: { params: paramsType }) {
   const { id } = params;
   const { newTitle: title, newDescription: description } = await request.json();
   await connectMongoDB();
@@ -14,7 +11,7 @@ export async function PUT(request: Request, params: MyParams) {
   return NextResponse.json({ message: "Topic updated" }, { status: 200 });
 }
 
-export async function GET(request: Request, params: MyParams) {
+export async function GET(request: Request, { params }: { params: paramsType }) {
   const { id } = params;
   await connectMongoDB();
   const topic = await Topic.findOne({ _id: id });

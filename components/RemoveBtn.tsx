@@ -1,6 +1,6 @@
 "use client"
 import { HiOutlineTrash } from "react-icons/hi";
-import { useRouter } from "next/navigation"
+import { useRouter } from "next/navigation";
 
 type Props = {
   id: string
@@ -12,7 +12,7 @@ export default function RemoveBtn({ id }: Props) {
     const confirmed = confirm("Are you sure?");
 
     if (confirmed) {
-      const res = await fetch(`https://next-mongo-vercel-rouge.vercel.app/api/topics?id=${id}`, {
+      const res = await fetch(`https://next-mongo-netlify.netlify.app/api/topics?id=${id}`, {
         method: "DELETE",
       });
 

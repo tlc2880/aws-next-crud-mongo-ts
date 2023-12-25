@@ -1,8 +1,9 @@
+import React from 'react'
 import TopicsList from "@/components/TopicsList";
 
-export default function Home() {
+export default function page() {
   return (
-    <>
+    <>   
       <TopicsList />
     </>
   )
