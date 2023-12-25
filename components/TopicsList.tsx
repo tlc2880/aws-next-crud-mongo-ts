@@ -1,4 +1,3 @@
-import React  from 'react';
 import Link from "next/link";
 import RemoveBtn from "./RemoveBtn";
 import { HiPencilAlt } from "react-icons/hi";
@@ -6,13 +5,14 @@ import { topicType } from "../types.d";
 
 const getTopics = async () => {
   try {
-    const res: Response = await fetch('https://next-mongo-vercel-rouge.vercel.app/api/topics', {
+    const res = await fetch("https://next-mongo-vercel-rouge.vercel.app/api/topics", {
       cache: "no-store",
     });
 
     if (!res.ok) {
       throw new Error("Failed to fetch topics");
     }
+
     return res.json();
   } catch (error) {
     console.log("Error loading topics: ", error);
@@ -24,7 +24,7 @@ const getTopics = async () => {
 // }
 
 export default async function TopicsList() { //{id}: Props ) {
-  const {topics}: any = await getTopics();
+  const { topics }: any  = await getTopics();
 
   return (
     <>
@@ -35,7 +35,7 @@ export default async function TopicsList() { //{id}: Props ) {
           <div>{t.description}</div>
         </div>
         <div className="flex gap-2">
-          <RemoveBtn/>
+          <RemoveBtn id={t._id}/>
           <Link href={`/editTopic/${t._id}`}>
             <HiPencilAlt size={24} />
           </Link>
