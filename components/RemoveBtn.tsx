@@ -12,7 +12,7 @@ export default function RemoveBtn({ id }: Props) {
     const confirmed = confirm("Are you sure?");
 
     if (confirmed) {
-      const res = await fetch(`https://main.d22i920ywfkorh.amplifyapp.com/api/topics?id=${id}`, {
+      const res = await fetch(`https://next-mongo-vercel-rouge.vercel.app/api/topics?id=${id}`, {
         method: "DELETE",
       });
 

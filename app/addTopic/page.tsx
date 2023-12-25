@@ -17,7 +17,7 @@ export default function AddTopic() {
     }
 
     try {
-      const res = await fetch("https://main.d22i920ywfkorh.amplifyapp.com/api/topics", {
+      const res = await fetch("https://next-mongo-vercel-rouge.vercel.app/api/topics", {
         method: "POST",
         headers: {
           "Content-type": "application/json",
