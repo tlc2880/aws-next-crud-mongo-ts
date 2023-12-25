@@ -1,10 +1,30 @@
-import React from 'react';
-import { HiOutlineTrash } from "react-icons/hi"
+"use client"
+import { HiOutlineTrash } from "react-icons/hi";
+import { useRouter } from "next/navigation"
 
-export default function RemoveBtn() {
+type Props = {
+  id: string
+}
+
+export default function RemoveBtn({ id }: Props) {
+  const router = useRouter();
+  const removeTopic = async () => {
+    const confirmed = confirm("Are you sure?");
+
+    if (confirmed) {
+      const res = await fetch(`https://main.d22i920ywfkorh.amplifyapp.com/api/topics?id=${id}`, {
+        method: "DELETE",
+      });
+
+      if (res.ok) {
+        router.refresh();
+      }
+    }
+  };
+
   return (
-    <button className="text-red-400">
+    <button onClick={removeTopic} className="text-red-400">
       <HiOutlineTrash size={24} />
     </button>
-  )
+  );
 }
