@@ -18,6 +18,9 @@ export default function RemoveBtn({ id }: Props) {
 
       if (res.ok) {
         router.refresh();
+      }  
+      else {
+        throw new Error("Failed to delete a topic")
       }
     }
   };
